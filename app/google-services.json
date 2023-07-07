@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "39509652866",
+    "project_id": "financeapp-aba98",
+    "storage_bucket": "financeapp-aba98.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39509652866:android:0a0ad1f033616b78668b9b",
+        "android_client_info": {
+          "package_name": "org.hakandindis.financeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39509652866-71kvkhckkl58g7c41oka69cmo96oqucp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxc_GmLh7-VVuffOs1zMcWYufzu2XHcsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39509652866-71kvkhckkl58g7c41oka69cmo96oqucp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
