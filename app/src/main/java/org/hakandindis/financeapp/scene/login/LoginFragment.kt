@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import org.hakandindis.financeapp.R
 import org.hakandindis.financeapp.databinding.FragmentLoginBinding
 import org.hakandindis.financeapp.extension.showEmailOrPasswordNotValidToast
-import org.hakandindis.financeapp.scene.register.RegisterFragmentDirections
 import org.hakandindis.financeapp.util.AuthStates
 
 

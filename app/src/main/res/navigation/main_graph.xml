@@ -24,7 +24,16 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="org.hakandindis.financeapp.scene.HomeFragment"
+        android:name="org.hakandindis.financeapp.scene.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_newTransactionFragment"
+            app:destination="@id/newTransactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newTransactionFragment"
+        android:name="org.hakandindis.financeapp.scene.new_transaction.NewTransactionFragment"
+        android:label="fragment_new_transaction"
+        tools:layout="@layout/fragment_new_transaction" />
 </navigation>

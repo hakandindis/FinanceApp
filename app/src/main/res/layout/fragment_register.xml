@@ -26,15 +26,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:padding="10dp"
-        app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:startIconDrawable="@color/black">
+        app:startIconDrawable="@drawable/mail_icon">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fragment_register_email_edit_text"
-            style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="email"
@@ -49,7 +47,8 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:startIconDrawable="@drawable/password_icon">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fragment_register_password_edit_text"

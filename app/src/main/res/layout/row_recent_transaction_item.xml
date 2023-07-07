@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="org.hakandindis.financeapp.scene.model.TransactionModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/transaction_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{model.transactionName}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="MARKET HARCAMASI" />
+
+        <TextView
+            android:id="@+id/transaction_amount"
+            android:text="@{String.valueOf(model.transactionAmount)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/transaction_name"
+            app:layout_constraintTop_toBottomOf="@+id/transaction_name"
+            tools:text="1750 TL" />
+
+        <TextView
+            tools:text="Food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.transactionCategory}"
+            app:layout_constraintStart_toStartOf="@+id/transaction_amount"
+            app:layout_constraintTop_toBottomOf="@+id/transaction_amount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
