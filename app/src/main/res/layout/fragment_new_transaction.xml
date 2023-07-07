@@ -97,28 +97,28 @@
             style="@style/Widget.Material3.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Abonelik" />
+            android:text="Subscription" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/rent_chip"
             style="@style/Widget.Material3.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kira" />
+            android:text="Rent" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/food_chip"
             style="@style/Widget.Material3.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yemek" />
+            android:text="Food" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/clothes_chip"
             style="@style/Widget.Material3.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kıyafet" />
+            android:text="Clothes" />
     </com.google.android.material.chip.ChipGroup>
 
     <com.google.android.material.button.MaterialButton

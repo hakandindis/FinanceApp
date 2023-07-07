@@ -6,14 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import org.hakandindis.financeapp.util.AuthStates
-import java.lang.Exception
 
 
-class RegisterViewModel: ViewModel() {
+class RegisterViewModel : ViewModel() {
     lateinit var auth: FirebaseAuth
     val authState = MutableLiveData<AuthStates>()
 
-    fun registerWithEmailAndPassword(email:String, password: String) {
+    fun registerWithEmailAndPassword(email: String, password: String) {
         viewModelScope.launch {
             try {
                 authState.value = AuthStates.LOADING

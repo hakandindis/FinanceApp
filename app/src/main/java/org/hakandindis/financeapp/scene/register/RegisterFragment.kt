@@ -48,6 +48,10 @@ class RegisterFragment : Fragment() {
                 viewModel.registerWithEmailAndPassword(email = email, password = password)
             }
         }
+        binding.loginText.setOnClickListener {
+            val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
+            findNavController().navigate(action)
+        }
     }
 
     private fun observeAllLiveData() {

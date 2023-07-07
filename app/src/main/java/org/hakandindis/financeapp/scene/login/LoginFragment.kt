@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
+import org.hakandindis.financeapp.R
 import org.hakandindis.financeapp.databinding.FragmentLoginBinding
 import org.hakandindis.financeapp.extension.showEmailOrPasswordNotValidToast
 import org.hakandindis.financeapp.util.AuthStates
@@ -19,6 +21,11 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding
 
     private val viewModel: LoginViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.auth = FirebaseAuth.getInstance()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -40,6 +47,9 @@ class LoginFragment : Fragment() {
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 viewModel.loginWithEmailAndPassword(email = email, password = password)
             }
+        }
+        binding.registerText.setOnClickListener {
+            findNavController().navigate(R.id.action_global_mainFragment)
         }
     }
 

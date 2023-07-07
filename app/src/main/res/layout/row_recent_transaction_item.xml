@@ -13,37 +13,54 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageFilterView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:set_transaction_category="@{model.transactionCategory}"
+            tools:src="@drawable/food_icon" />
 
         <TextView
             android:id="@+id/transaction_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@{model.transactionName}"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageFilterView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="MARKET HARCAMASI" />
 
         <TextView
             android:id="@+id/transaction_amount"
-            android:text="@{String.valueOf(model.transactionAmount)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/transaction_name"
-            app:layout_constraintTop_toBottomOf="@+id/transaction_name"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{String.valueOf(model.transactionAmount)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageFilterView2"
             tools:text="1750 TL" />
 
-        <TextView
-            tools:text="Food"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{model.transactionCategory}"
-            app:layout_constraintStart_toStartOf="@+id/transaction_amount"
-            app:layout_constraintTop_toBottomOf="@+id/transaction_amount" />
+        <ImageView
+            android:id="@+id/imageFilterView2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/income_arrow_icon" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
