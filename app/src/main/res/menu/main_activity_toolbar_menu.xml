@@ -3,5 +3,9 @@
 
     <item
         android:id="@+id/main_activity_toolbar_forget_account"
-        android:title="hesabı unut"/>
+        android:title="hesabı unut" />
+
+    <item
+        android:id="@+id/main_activity_toolbar_coin"
+        android:title="Coinleri takip et" />
 </menu>

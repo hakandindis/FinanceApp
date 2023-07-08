@@ -10,6 +10,9 @@
     <action
         android:id="@+id/action_global_home_fragment"
         app:destination="@id/homeFragment" />
+    <action
+        android:id="@+id/action_global_coin_fragment"
+        app:destination="@id/coinFragment" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="org.hakandindis.financeapp.scene.login.LoginFragment"
@@ -56,4 +59,9 @@
             android:name="model"
             app:argType="org.hakandindis.financeapp.scene.model.TransactionModel" />
     </fragment>
+    <fragment
+        android:id="@+id/coinFragment"
+        android:name="org.hakandindis.financeapp.scene.crypto.CoinFragment"
+        android:label="fragment_coin"
+        tools:layout="@layout/fragment_coin" />
 </navigation>

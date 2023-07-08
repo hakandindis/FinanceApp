@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             if (Firebase.auth.currentUser != null) {
                 Firebase.auth.signOut()
             }
-          viewModel.isAuthenticated.value = false
+            viewModel.isAuthenticated.value = false
         }
     }
 
@@ -60,6 +60,11 @@ class MainActivity : AppCompatActivity() {
                 viewModel.isAuthenticated.value = false
                 Firebase.auth.signOut()
                 findNavController(R.id.fragmentContainerView).navigate(R.id.action_global_mainFragment)
+                return true
+            }
+
+            R.id.main_activity_toolbar_coin -> {
+                findNavController(R.id.fragmentContainerView).navigate(R.id.action_global_coin_fragment)
                 return true
             }
         }
