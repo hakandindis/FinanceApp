@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class NewTransactionViewModel @Inject constructor(private val transactionDao: TransactionDao) : ViewModel() {
 
-    fun addTransaction(transactionName: String, transactionAmount: Int, transactionType: String,transactionCategory: String) {
+    fun addTransaction(transactionName: String, transactionAmount: Int, transactionType: String, transactionCategory: String) {
         viewModelScope.launch {
 
             transactionDao.insertTransaction(

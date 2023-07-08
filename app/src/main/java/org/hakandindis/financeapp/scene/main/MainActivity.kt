@@ -6,8 +6,13 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,22 +26,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var navController: NavController
     private val viewModel: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.activityMainToolbar)
 
-        viewModel.isAuthenticated.observe(this) {
-            binding.bottomNavigationView.isVisible = it
-        }
+        navHostFragment = supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
+        navController = navHostFragment.findNavController()
+
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
+        setAuthState()
+        setSupportActionBar(binding.activityMainToolbar)
     }
 
     override fun onStart() {
         super.onStart()
-        setAuthState()
+        val navView: BottomNavigationView = binding.bottomNavigationView
+
+        val navController = findNavController(R.id.fragmentContainerView)
+        navView.setupWithNavController(navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     private fun setAuthState() {
@@ -62,14 +80,17 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.main_activity_toolbar_forget_account -> {
-                viewModel.isAuthenticated.value = false
-                Firebase.auth.signOut()
-                findNavController(R.id.fragmentContainerView).navigate(R.id.action_global_mainFragment)
-                return true
-            }
+                MaterialAlertDialogBuilder(this)
+                    .setTitle("Çıkış yapmak istediğinize emin misiniz?")
+                    .setMessage("Daha sonrasında tekrar giriş yapmak zorunda kalacaksınız")
+                    .setNegativeButton("Hayır", null)
+                    .setPositiveButton("Evet") { _, _ ->
+                        viewModel.isAuthenticated.value = false
+                        Firebase.auth.signOut()
+                        findNavController(R.id.fragmentContainerView).navigate(R.id.action_global_mainFragment)
+                    }
+                    .show()
 
-            R.id.main_activity_toolbar_coin -> {
-                findNavController(R.id.fragmentContainerView).navigate(R.id.action_global_coin_fragment)
                 return true
             }
         }

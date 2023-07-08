@@ -82,8 +82,6 @@ class RegisterFragment : Fragment() {
                         putBoolean(MainActivity.IS_REMEMBER, isRemember)
                         apply()
                     }
-                    val action = RegisterFragmentDirections.actionRegisterFragmentToHomeFragment()
-                    findNavController().navigate(action)
                 }
 
                 AuthStates.FAILED -> {}

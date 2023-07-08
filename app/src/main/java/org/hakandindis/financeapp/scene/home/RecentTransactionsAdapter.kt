@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import org.hakandindis.financeapp.databinding.RowRecentTransactionItemBinding
 import org.hakandindis.financeapp.scene.model.TransactionModel
 
-class RecentTransactionsAdapter(private val listener: TransactionClickListener) : ListAdapter<TransactionModel, RecentTransactionsAdapter.RecentTransactionViewHolder>(recentTransactionDiffUtil) {
+class RecentTransactionsAdapter(private val listener: TransactionClickListener) :
+    ListAdapter<TransactionModel, RecentTransactionsAdapter.RecentTransactionViewHolder>(recentTransactionDiffUtil) {
 
     companion object {
         val recentTransactionDiffUtil = object : DiffUtil.ItemCallback<TransactionModel>() {

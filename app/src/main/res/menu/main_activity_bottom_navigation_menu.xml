@@ -7,7 +7,7 @@
         android:icon="@drawable/baseline_house_24"/>
 
     <item
-        android:id="@+id/peopleFragment"
+        android:id="@+id/coinFragment"
         android:title="Coin"
         android:icon="@drawable/amount_icon"/>
 </menu>

@@ -12,7 +12,7 @@ import org.hakandindis.financeapp.data.local.model.TransactionEntity
 interface TransactionDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTransaction(entity:TransactionEntity)
+    suspend fun insertTransaction(entity: TransactionEntity)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateTransaction(entity: TransactionEntity)

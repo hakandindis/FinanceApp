@@ -44,7 +44,7 @@ class HomeViewModel @Inject constructor(private val transactionDao: TransactionD
                 }
 
                 _recentTransactions.value = convertedList
-                totalBalance.value = income- expense
+                totalBalance.value = income - expense
                 totalIncome.value = income
                 totalExpense.value = expense
             } catch (e: Exception) {
