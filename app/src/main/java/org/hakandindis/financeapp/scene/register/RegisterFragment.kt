@@ -75,6 +75,7 @@ class RegisterFragment : Fragment() {
                 AuthStates.INITIAL -> {}
                 AuthStates.LOADING -> {}
                 AuthStates.SUCCESS -> {
+                    activityViewModel.isAuthenticated.value = true
                     val isRemember = binding.rememberMeCheckBox.isChecked
                     val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return@observe
                     with(sharedPref.edit()) {
