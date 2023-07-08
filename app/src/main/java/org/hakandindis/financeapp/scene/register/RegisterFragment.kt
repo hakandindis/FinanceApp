@@ -1,5 +1,6 @@
 package org.hakandindis.financeapp.scene.register
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import org.hakandindis.financeapp.databinding.FragmentRegisterBinding
+import org.hakandindis.financeapp.scene.main.MainActivity
 import org.hakandindis.financeapp.scene.main.MainActivityViewModel
 import org.hakandindis.financeapp.util.AuthStates
 
@@ -27,7 +30,8 @@ class RegisterFragment : Fragment() {
         viewModel.auth = FirebaseAuth.getInstance()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRegisterBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -46,6 +50,11 @@ class RegisterFragment : Fragment() {
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 viewModel.registerWithEmailAndPassword(email = email, password = password)
+            } else {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Giriş Hatası")
+                    .setMessage("Lütfen mail adresini doğru formatta giriniz ve şifrenizi en az 6 karakter olacak şekilde seçiniz")
+                    .show()
             }
         }
         binding.loginText.setOnClickListener {
@@ -62,14 +71,20 @@ class RegisterFragment : Fragment() {
             }
         }
         viewModel.authState.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 AuthStates.INITIAL -> {}
                 AuthStates.LOADING -> {}
                 AuthStates.SUCCESS -> {
-                    activityViewModel.isRememberUser.value = binding.rememberMeCheckBox.isChecked
+                    val isRemember = binding.rememberMeCheckBox.isChecked
+                    val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return@observe
+                    with(sharedPref.edit()) {
+                        putBoolean(MainActivity.IS_REMEMBER, isRemember)
+                        apply()
+                    }
                     val action = RegisterFragmentDirections.actionRegisterFragmentToHomeFragment()
                     findNavController().navigate(action)
                 }
+
                 AuthStates.FAILED -> {}
             }
         }

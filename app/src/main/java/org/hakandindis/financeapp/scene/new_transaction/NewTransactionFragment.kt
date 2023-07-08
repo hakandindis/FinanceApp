@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import dagger.hilt.android.AndroidEntryPoint
 import org.hakandindis.financeapp.R
@@ -47,14 +48,33 @@ class NewTransactionFragment : Fragment() {
 
     private fun initializeListeners() {
         binding.addTransactionButton.setOnClickListener {
-            viewModel.addTransaction(
-                transactionName = binding.transactionTitleEditText.text.toString(),
-                transactionAmount = binding.amountEditText.text.toString().toInt(),
-                transactionType = binding.transactionTypeTextView.text.toString(),
-                transactionCategory = binding.transactionCategoryTextView.text.toString(),
+
+            val name = binding.transactionTitleEditText.text.toString()
+            val type = binding.transactionTypeTextView.text.toString()
+            val category = binding.transactionCategoryTextView.text.toString()
+            val amount = if (binding.amountEditText.text.toString().isNotEmpty()) {
+                binding.amountEditText.text.toString().toInt()
+            } else {
+                0
+            }
+
+            if (name.isNotEmpty() && amount > 0 && type.isNotEmpty() && category.isNotEmpty()) {
+                viewModel.addTransaction(
+                    transactionName = name,
+                    transactionAmount = amount,
+                    transactionType = type,
+                    transactionCategory = category,
                 )
 
-            findNavController().navigate(R.id.action_global_home_fragment)
+                findNavController().navigate(R.id.action_global_home_fragment)
+            } else {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Eksik Bilgi")
+                    .setMessage("Lütfen tüm bilgileri eksiksiz doldurun")
+                    .setCancelable(true)
+                    .show()
+
+            }
         }
     }
 }

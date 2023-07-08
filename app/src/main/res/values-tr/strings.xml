@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login">LOGIN</string>
-    <string name="register">REGISTER</string>
+    <string name="login">Giriş</string>
+    <string name="register">Kayıt</string>
     <string name="add">add</string>
+    <string name="email">e posta</string>
+    <string name="password">şifre</string>
 </resources>

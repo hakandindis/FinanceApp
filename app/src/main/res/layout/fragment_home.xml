@@ -63,7 +63,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="start"
-                android:text="20000 TL"
+                tools:text="20000 TL"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -84,7 +84,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="end"
-                android:text="8000TL"
+                tools:text="8000TL"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -116,6 +116,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recent_transaction_text"
         tools:listitem="@layout/row_recent_transaction_item" />
+
+    <TextView
+        android:id="@+id/no_transaction_text"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="HİÇ İŞLEM YOK"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_home_recent_transaction_list"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_home_recent_transaction_list"
+        app:layout_constraintStart_toStartOf="@+id/fragment_home_recent_transaction_list"
+        app:layout_constraintTop_toTopOf="@+id/fragment_home_recent_transaction_list" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

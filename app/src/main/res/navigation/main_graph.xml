@@ -51,5 +51,9 @@
     <fragment
         android:id="@+id/transactionDetailFragment"
         android:name="org.hakandindis.financeapp.scene.transaction_detail.TransactionDetailFragment"
-        android:label="TransactionDetailFragment" />
+        android:label="TransactionDetailFragment" >
+        <argument
+            android:name="model"
+            app:argType="org.hakandindis.financeapp.scene.model.TransactionModel" />
+    </fragment>
 </navigation>

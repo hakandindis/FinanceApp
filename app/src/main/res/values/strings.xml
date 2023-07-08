@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">FinanceApp</string>
+    <string name="app_name" translatable="false">FinanceApp</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="login">LOGIN</string>
-    <string name="register">REGISTER</string>
+    <string name="login">Giriş</string>
+    <string name="register">Kayıt</string>
     <string name="add">add</string>
+    <string name="email">e posta</string>
+    <string name="password">şifre</string>
 </resources>
