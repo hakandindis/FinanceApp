@@ -7,30 +7,20 @@
     tools:context=".scene.new_transaction.NewTransactionFragment">
 
 
-    <TextView
-        android:id="@+id/transaction_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Income Title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
+        style="?attr/textInputFilledStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:hint="Ev kirası"
-        app:boxCornerRadiusBottomEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
+        android:layout_marginTop="32dp"
+        android:hint="Bill"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/transaction_title"
-        tools:layout_editor_absoluteY="16dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/title_icon">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/transaction_title_edit_text"
@@ -39,32 +29,21 @@
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/amount_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Amount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout4"
+        style="?attr/textInputFilledStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:hint="Ev kirası"
-        app:boxCornerRadiusBottomEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
+        android:layout_marginTop="32dp"
+        android:hint="Amount"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/amount_title"
-        app:startIconDrawable="@drawable/amount_icon"
-        tools:layout_editor_absoluteY="16dp">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+        app:startIconDrawable="@drawable/amount_icon">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/amount_edit_text"
@@ -73,63 +52,60 @@
             android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Category"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chip_group"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="32dp"
+        android:hint="Transaction Type"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:singleSelection="true">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/subscription_chip"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
+        <AutoCompleteTextView
+            android:id="@+id/transaction_type_text_view"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Subscription" />
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/rent_chip"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rent" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/food_chip"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Food" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout6"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="32dp"
+        android:hint="Category"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/clothes_chip"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:layout_width="wrap_content"
+        <AutoCompleteTextView
+            android:id="@+id/transaction_category_text_view"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clothes" />
-    </com.google.android.material.chip.ChipGroup>
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/add_transaction_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:layout_marginTop="32dp"
         android:text="Add transaction"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

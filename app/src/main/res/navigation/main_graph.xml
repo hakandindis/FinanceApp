@@ -7,6 +7,9 @@
     <action
         android:id="@+id/action_global_mainFragment"
         app:destination="@id/registerFragment" />
+    <action
+        android:id="@+id/action_global_home_fragment"
+        app:destination="@id/homeFragment" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="org.hakandindis.financeapp.scene.login.LoginFragment"

@@ -6,9 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import dagger.hilt.android.AndroidEntryPoint
 import org.hakandindis.financeapp.R
 import org.hakandindis.financeapp.databinding.FragmentNewTransactionBinding
+import org.hakandindis.financeapp.util.TransactionCategories
+import org.hakandindis.financeapp.util.TransactionTypes
 
 @AndroidEntryPoint
 class NewTransactionFragment : Fragment() {
@@ -24,23 +28,33 @@ class NewTransactionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initializeViews()
         initializeListeners()
+    }
+
+    private fun initializeViews() {
+        val typeArray = arrayOf(TransactionTypes.INCOME.value, TransactionTypes.EXPENSE.value)
+        (binding.transactionTypeTextView as MaterialAutoCompleteTextView).setSimpleItems(typeArray)
+
+        val categoryArray = arrayOf(
+            TransactionCategories.FUN.value,
+            TransactionCategories.FOOD.value,
+            TransactionCategories.SUBSCRIPTION.value,
+            TransactionCategories.TRANSPORTATION.value
+        )
+        (binding.transactionCategoryTextView as MaterialAutoCompleteTextView).setSimpleItems(categoryArray)
     }
 
     private fun initializeListeners() {
         binding.addTransactionButton.setOnClickListener {
-            val category = when (binding.chipGroup.checkedChipId) {
-                R.id.subscription_chip -> binding.subscriptionChip.text.toString()
-                R.id.rent_chip -> binding.rentChip.text.toString()
-                R.id.food_chip -> binding.foodChip.text.toString()
-                else -> binding.clothesChip.text.toString()
-            }
-
             viewModel.addTransaction(
                 transactionName = binding.transactionTitleEditText.text.toString(),
                 transactionAmount = binding.amountEditText.text.toString().toInt(),
-                transactionCategory = category
-            )
+                transactionType = binding.transactionTypeTextView.text.toString(),
+                transactionCategory = binding.transactionCategoryTextView.text.toString(),
+                )
+
+            findNavController().navigate(R.id.action_global_home_fragment)
         }
     }
 }

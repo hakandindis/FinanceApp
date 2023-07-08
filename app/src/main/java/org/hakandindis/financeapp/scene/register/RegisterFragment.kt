@@ -66,6 +66,7 @@ class RegisterFragment : Fragment() {
                 AuthStates.INITIAL -> {}
                 AuthStates.LOADING -> {}
                 AuthStates.SUCCESS -> {
+                    activityViewModel.isRememberUser.value = binding.rememberMeCheckBox.isChecked
                     val action = RegisterFragmentDirections.actionRegisterFragmentToHomeFragment()
                     findNavController().navigate(action)
                 }

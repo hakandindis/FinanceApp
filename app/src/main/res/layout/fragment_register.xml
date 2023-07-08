@@ -75,15 +75,6 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/login_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
-        android:text="Bir hesabınız var mı? Giriş yapmak için tıklayın"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_register_button" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/fragment_register_button"
@@ -96,5 +87,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
+    <CheckBox
+        android:id="@+id/remember_me_check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/fragment_register_button"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_register_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Beni hatırla"
+        app:layout_constraintBottom_toBottomOf="@+id/remember_me_check_box"
+        app:layout_constraintStart_toEndOf="@+id/remember_me_check_box"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_register_button" />
+
+
+    <TextView
+        android:id="@+id/login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:text="Bir hesabınız var mı? Giriş yapmak için tıklayın"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remember_me_check_box" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
