@@ -39,10 +39,17 @@
         <action
             android:id="@+id/action_homeFragment_to_newTransactionFragment"
             app:destination="@id/newTransactionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_transactionDetailFragment"
+            app:destination="@id/transactionDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/newTransactionFragment"
         android:name="org.hakandindis.financeapp.scene.new_transaction.NewTransactionFragment"
         android:label="fragment_new_transaction"
         tools:layout="@layout/fragment_new_transaction" />
+    <fragment
+        android:id="@+id/transactionDetailFragment"
+        android:name="org.hakandindis.financeapp.scene.transaction_detail.TransactionDetailFragment"
+        android:label="TransactionDetailFragment" />
 </navigation>
