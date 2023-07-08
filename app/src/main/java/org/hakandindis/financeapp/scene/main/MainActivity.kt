@@ -41,8 +41,15 @@ class MainActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
+        initializeObservers()
         setAuthState()
-        setSupportActionBar(binding.activityMainToolbar)
+    }
+
+    private fun initializeObservers() {
+        viewModel.isAuthenticated.observe(this) {
+            if (it) setSupportActionBar(binding.activityMainToolbar)
+            else    supportActionBar?.hide()
+        }
     }
 
     override fun onStart() {
